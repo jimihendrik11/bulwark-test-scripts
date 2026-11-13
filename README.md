@@ -136,7 +136,7 @@ bash run-phase1.sh --create # write a fresh result
 
 The output is `results/PRV-RINGS-phase1.json`, and the run prints MATCH when the on-chain facts equal the recorded ones. The slot changes on every run, so it is printed but not compared.
 
-Build verification is recorded as not verified. The build was not reproduced from the recorded commit here, and the documentation publishes no program hash to compare against, so the result file states that plainly instead of claiming a match.
+Build verification runs inside the same command and writes `results/PRV-RINGS-build.json`. The released `shielded_pool_program.so` from `shielded-pool-v1.0.0` was hashed, checked against the published `SHA256SUMS`, then compared byte by byte with the first bytes of the deployed ProgramData payload. The two match: 634,120 bytes, SHA-256 `dc68dd27...8030a2`, followed only by zero padding on chain.
 
 ## Related
 

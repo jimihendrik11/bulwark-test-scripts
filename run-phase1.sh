@@ -10,4 +10,5 @@ if ! command -v node >/dev/null 2>&1; then
 fi
 
 echo "report PRV-RINGS phase 1 | rpc ${SOLANA_RPC:-https://api.mainnet-beta.solana.com}"
+node script/build-verify.mjs
 node script/phase1.mjs "$@"

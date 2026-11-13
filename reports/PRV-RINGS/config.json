@@ -25,9 +25,16 @@
     "security": "https://www.helius.dev/docs/privacy/security"
   },
   "buildVerification": {
-    "status": "not verified",
-    "tool": "solana-verify",
-    "reason": "The build was not reproduced from the recorded commit in this environment. No published program hash was found in the documentation, so a byte for byte match could not be asserted either way."
+    "status": "verified",
+    "release": "shielded-pool-v1.0.0",
+    "asset": "shielded_pool_program.so",
+    "assetBytes": 634120,
+    "assetSha256": "dc68dd2793403f3aa23102cfbaba580eb612def73c05685a7ef99787d08030a2",
+    "publishedSha256Matches": true,
+    "deployedPrefixEqualsAsset": true,
+    "trailingZeroPadding": 7799,
+    "method": "The released binary was hashed, checked against the published SHA256SUMS, then compared byte by byte with the first bytes of the deployed ProgramData payload.",
+    "evidenceFile": "results/PRV-RINGS-build.json"
   },
   "privilegedInstructions": [
     "protocol_config:init",
@@ -44,13 +51,32 @@
   ],
   "reportedInputs": {
     "audits": [
-      { "firm": "Certora", "scope": "program and circuits", "date": "October 2026" },
-      { "firm": "zkSecurity", "scope": "program and circuits", "date": "August 2026" },
-      { "firm": "OtterSec", "scope": "waiting for report", "date": null }
+      {
+        "firm": "Certora",
+        "scope": "program and circuits",
+        "date": "October 2026"
+      },
+      {
+        "firm": "zkSecurity",
+        "scope": "program and circuits",
+        "date": "August 2026"
+      },
+      {
+        "firm": "OtterSec",
+        "scope": "waiting for report",
+        "date": null
+      }
     ],
     "trustedSetup": {
       "completed": "2026-11-02",
-      "contributors": ["Blueshift", "Solana Foundation", "Certora", "OtterSec", "zkSecurity", "Zcash"],
+      "contributors": [
+        "Blueshift",
+        "Solana Foundation",
+        "Certora",
+        "OtterSec",
+        "zkSecurity",
+        "Zcash"
+      ],
       "contributionsPerCircuit": 15
     }
   },

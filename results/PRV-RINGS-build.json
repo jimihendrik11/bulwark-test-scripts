@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-13",
+  "release": "shielded-pool-v1.0.0",
+  "asset": "shielded_pool_program.so",
+  "assetBytes": 634120,
+  "assetSha256": "dc68dd2793403f3aa23102cfbaba580eb612def73c05685a7ef99787d08030a2",
+  "publishedSha256": "dc68dd2793403f3aa23102cfbaba580eb612def73c05685a7ef99787d08030a2",
+  "publishedMatchesAsset": true,
+  "programDataLength": 641949,
+  "payloadLength": 641904,
+  "deployedPrefixEqualsAsset": true,
+  "trailingZeroPadding": 7799,
+  "slotRead": 468873478,
+  "method": "The released program binary was hashed, then compared byte by byte with the first bytes of the deployed ProgramData payload."
+}

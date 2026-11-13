@@ -3,7 +3,7 @@
   "protocol": "Privacy Rings",
   "network": "mainnet-beta",
   "programId": "ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW",
-  "slot": 468863143,
+  "slot": 468873597,
   "executed": true,
   "program": {
     "executable": true,
@@ -15,7 +15,8 @@
   "upgradeAuthority": {
     "holder": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB",
     "type": "keypair",
-    "accountOwner": null
+    "accountOwner": null,
+    "impact": "can replace the whole program, so a single key compromise puts every deposited asset at risk"
   },
   "protocolConfig": {
     "address": "EienwBSpsbAetT3RAAMzVA9rB5RHgCF7yTH7FFST6AK5",
@@ -23,27 +24,32 @@
       {
         "role": "protocol_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet"
+        "type": "wallet",
+        "impact": "updates the protocol config and can pause a tree, so deposits and withdrawals on that tree can be stopped; it cannot move user funds"
       },
       {
         "role": "tree_creation_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet"
+        "type": "wallet",
+        "impact": "creates trees for the protocol; it has no path to user balances"
       },
       {
         "role": "forester_authority",
         "holder": "B5df3kMmMxwqRUwWPffiECeqAL1ht27G1ES8guKHKi5K",
-        "type": "keypair"
+        "type": "keypair",
+        "impact": "updates the nullifier tree, claims tree rent and closes nullifier accounts; it can stall the withdrawal path but cannot transfer user assets"
       },
       {
         "role": "ring_creation_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet"
+        "type": "wallet",
+        "impact": "creates and activates ring configs; it has no path to user balances"
       },
       {
         "role": "fee_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet"
+        "type": "wallet",
+        "impact": "sets tree fees, which changes what a user pays; it cannot move deposited funds"
       }
     ],
     "permissions": {
@@ -54,9 +60,16 @@
     }
   },
   "buildVerification": {
-    "status": "not verified",
-    "tool": "solana-verify",
-    "reason": "The build was not reproduced from the recorded commit in this environment. No published program hash was found in the documentation, so a byte for byte match could not be asserted either way."
+    "status": "verified",
+    "release": "shielded-pool-v1.0.0",
+    "asset": "shielded_pool_program.so",
+    "assetBytes": 634120,
+    "assetSha256": "dc68dd2793403f3aa23102cfbaba580eb612def73c05685a7ef99787d08030a2",
+    "publishedSha256Matches": true,
+    "deployedPrefixEqualsAsset": true,
+    "trailingZeroPadding": 7799,
+    "method": "The released binary was hashed, checked against the published SHA256SUMS, then compared byte by byte with the first bytes of the deployed ProgramData payload.",
+    "evidenceFile": "results/PRV-RINGS-build.json"
   },
   "reportedInputs": {
     "audits": [

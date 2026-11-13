@@ -40,6 +40,16 @@ async function rpc(method, params) {
   return body.result;
 }
 
+const IMPACT = {
+  protocol_authority:
+    'updates the protocol config and can pause a tree, so deposits and withdrawals on that tree can be stopped; it cannot move user funds',
+  tree_creation_authority: 'creates trees for the protocol; it has no path to user balances',
+  forester_authority:
+    'updates the nullifier tree, claims tree rent and closes nullifier accounts; it can stall the withdrawal path but cannot transfer user assets',
+  ring_creation_authority: 'creates and activates ring configs; it has no path to user balances',
+  fee_authority: 'sets tree fees, which changes what a user pays; it cannot move deposited funds'
+};
+
 function authorityType(info) {
   if (!info) return 'keypair';
   if (info.owner === '11111111111111111111111111111111') return 'wallet';
@@ -91,7 +101,7 @@ const authorities = [];
 for (let i = 0; i < labels.length; i += 1) {
   const address = b58encode(cfgBytes.subarray(1 + i * 32, 1 + (i + 1) * 32));
   const info = await rpc('getAccountInfo', [address, { encoding: 'base64', commitment: 'confirmed' }]);
-  authorities.push({ role: labels[i], holder: address, type: authorityType(info.value) });
+  authorities.push({ role: labels[i], holder: address, type: authorityType(info.value), impact: IMPACT[labels[i]] });
 }
 const permissions = {
   tree_creation_is_permissionless: cfgBytes[161] === 1,
@@ -117,7 +127,10 @@ const results = {
   upgradeAuthority: {
     holder: authorityAddress,
     type: authorityAddress ? authorityType(authorityAccount) : 'immutable',
-    accountOwner: authorityAccount ? authorityAccount.owner : null
+    accountOwner: authorityAccount ? authorityAccount.owner : null,
+    impact: authorityAddress
+      ? 'can replace the whole program, so a single key compromise puts every deposited asset at risk'
+      : 'program is immutable'
   },
   protocolConfig: {
     address: cfg.pubkey,
