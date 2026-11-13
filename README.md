@@ -86,6 +86,10 @@ run.sh, run.ps1            one command: test, build the result, compare
 reports/CR-1029/           fork block, addresses, parameters, thresholds
 test/CR-1029/              RearImpact.t.sol, PoleTest.t.sol, shared helpers
 script/report.mjs          turns test output into results/CR-1029.json
+script/classify.mjs        the band rules shared by the report and the preview
+script/preview.mjs         prints the band per scenario, no RPC needed
+script/signoff.mjs         writes or verifies the threshold signature
+reports/CR-1029/signoff.json  signer, date and the threshold hash
 results/CR-1029.json       the recorded numbers
 scenarios/                 one document per scenario
 reports/CR-1001/           earlier report configuration, not executed on a fork
@@ -108,6 +112,18 @@ The held, degraded and failed bands were written into `reports/CR-1029/config.js
 | Pole Test | a single key cannot move funds and cannot block them | a single key can pause or freeze without loss | a single key can drain funds |
 
 Both definitions are copied from `scenarios/rear-impact.md` and `scenarios/pole-test.md` and were written into the config before the first run. Against them, Rear Impact records a failed result and Pole Test records a degraded one, because the pause guardian can freeze withdrawals even though no single key can move funds.
+
+## Thresholds and signature
+
+The bands are signed before a result can be recorded. The signature binds to the exact threshold text by hash, so editing a band invalidates it until it is signed again.
+
+```bash
+node script/signoff.mjs --report CR-1029 --verify   # check the signature against the current bands
+node script/preview.mjs                             # print the band each scenario lands in
+node script/preview.mjs --singleKey=true            # same check with a different assumption
+```
+
+`script/preview.mjs` reads the recorded result and needs no RPC and no fork, so the band logic can be inspected at any time. It writes nothing. Its flags change one assumption at a time to show which band would follow.
 
 ## Related
 

@@ -1,0 +1,35 @@
+name: CR-1029 fork run
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  fork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.9.0
+      - name: Run the fork test and compare
+        env:
+          RPC_URL: ${{ secrets.RPC_URL_ARCHIVE }}
+        run: |
+          if [ -z "$RPC_URL" ]; then
+            RPC_URL=https://rpc.mevblocker.io
+          fi
+          ./run.sh CR-1029 | tee fork-run.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cr-1029-fork
+          path: |
+            results/CR-1029.json
+            fork-run.log
+            out/

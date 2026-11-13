@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { rearBand, poleBand } from './classify.mjs';
 
 const args = process.argv.slice(2);
 const opt = (name, fallback) => {
@@ -14,6 +16,10 @@ const reportId = opt('report', 'CR-1029');
 const root = process.cwd();
 const config = JSON.parse(fs.readFileSync(path.join(root, 'reports', reportId, 'config.json'), 'utf8'));
 const target = path.join(root, 'results', reportId + '.json');
+const signoffPath = path.join(root, 'reports', reportId, 'signoff.json');
+const signoff = fs.existsSync(signoffPath) ? JSON.parse(fs.readFileSync(signoffPath, 'utf8')) : null;
+const thresholdsHash = crypto.createHash('sha256').update(JSON.stringify(config.thresholds)).digest('hex');
+const signed = Boolean(signoff && signoff.thresholdsHash === thresholdsHash);
 
 function readMetrics(file) {
   const full = path.join(root, 'out', file);
@@ -53,8 +59,11 @@ const pole = readMetrics('CR-1029-pole.txt');
 
 const rearRequestedPct = pct(rear.demand, rear.total_supply);
 const rearFulfilledPct = pct(rear.fulfilled, rear.demand);
-const rearCleared = Number(rear.fulfilled) >= Number(rear.demand);
-const rearResult = rearCleared ? 'held' : num(rear.after_24h_additional) > 0 ? 'degraded' : 'failed';
+const rearResult = rearBand({
+  fulfilled: rear.fulfilled,
+  demand: rear.demand,
+  after24hAdditional: rear.after_24h_additional
+});
 
 const roleType = (codeSize) => (Number(codeSize) === 0 ? 'eoa' : 'contract');
 const roles = [
@@ -69,7 +78,7 @@ const movedByTimelock = num(pole.upgrade_moved);
 const delay = num(pole.timelock_delay);
 const withdrawBlockedByPause = pole.withdraw_during_pause !== 'true';
 const reachableBySingleKey = false;
-const poleResult = reachableBySingleKey ? 'failed' : withdrawBlockedByPause ? 'degraded' : 'held';
+const poleResult = poleBand({ withdrawBlockedByPause, reachableBySingleKey });
 
 const results = {
   reportId,
@@ -133,6 +142,11 @@ if (fs.existsSync(target)) {
     const same = previousStable === currentStable;
     console.log(`fork block ${results.forkBlock} | commit ${results.commit}`);
     console.log(
+      signed
+        ? `thresholds signed by ${signoff.signer} (${signoff.role}) on ${signoff.signedAt}`
+        : 'thresholds are not signed'
+    );
+    console.log(
       `rear impact: requested ${results.scenarios.rear_impact.requestedUsdc} USDC, ` +
         `fulfilled ${results.scenarios.rear_impact.fulfilledUsdc} USDC ` +
         `(${results.scenarios.rear_impact.fulfilledPct} percent), result ${results.scenarios.rear_impact.result}`
@@ -156,6 +170,10 @@ if (fs.existsSync(target)) {
 }
 
 if (create) {
+  if (!signed) {
+    console.error('thresholds changed or were never signed, run node script/signoff.mjs --write');
+    process.exit(3);
+  }
   const payload = { ...results, generatedAt: new Date().toISOString() };
   fs.writeFileSync(target, JSON.stringify(payload, null, 2) + '\n');
   console.log('wrote ' + target);

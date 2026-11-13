@@ -1,0 +1,8 @@
+{
+  "reportId": "CR-1029",
+  "signer": "Nadia Kusuma",
+  "role": "Test Director",
+  "signedAt": "2026-11-13",
+  "basis": "thresholds taken from scenarios/rear-impact.md and scenarios/pole-test.md before the run",
+  "thresholdsHash": "a89e0f5e243f1ec1109c3c52ce030c0c6e713aed6e82ecd1bf136392c838bf8d"
+}
