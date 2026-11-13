@@ -66,7 +66,7 @@ export RPC_URL=<your own Ethereum archive endpoint>
 
 The last line is `MATCH` when the numbers equal `results/CR-1029.json`, and `MISMATCH` with both sets printed when they do not. On Windows, `run.ps1 CR-1029` does the same after `$env:RPC_URL` is set.
 
-Pipelines run the same command with `RPC_URL_ARCHIVE` stored as a masked CI variable and keep the result file, the full log and the raw test output as artifacts. The public run for this report lives at [GitHub Actions](https://github.com/jimihendrik11/bulwark-test-scripts/actions), and the GitLab copy keeps an identical job.
+Pipelines run the same command with `RPC_URL_ARCHIVE` stored as a masked CI variable and keep the result file, the full log and the raw test output as artifacts. The public run for this report lives at [GitHub Actions](https://github.com/jimihendrik11/bulwark-test-scripts/actions). The same job is kept at `ci/gitlab.yml`; copy it to `.gitlab-ci.yml` to run the pipeline on GitLab as well.
 
 ## How to verify
 
