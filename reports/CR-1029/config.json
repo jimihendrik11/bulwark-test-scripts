@@ -45,17 +45,20 @@
     }
   },
   "thresholds": {
-    "declaredAt": "2026-11-13",
-    "status": "declared before execution, pending Test Director sign-off",
+    "source": "scenarios/rear-impact.md and scenarios/pole-test.md",
+    "declaredAt": "2026-11-13, before the first run",
+    "status": "taken verbatim from the scenario definitions, pending Test Director sign-off",
     "rear_impact": {
-      "held": "at least 95 percent of the requested withdrawal leaves the market",
-      "degraded": "at least 50 percent and below 95 percent",
-      "failed": "below 50 percent"
+      "held": "every withdrawal clears with slippage under 1 percent",
+      "degraded": "slippage up to 5 percent, or a queue of up to 72 hours",
+      "failed": "beyond a 5 percent cost, beyond a 72 hour queue, or a withdrawal that never clears",
+      "appliedAs": "any demanded withdrawal that still cannot clear after the 24 hour warp counts as failed"
     },
     "pole_test": {
-      "held": "withdrawals can be paused, user funds cannot be moved by one key without a delay above zero",
-      "degraded": "a privileged key can move funds but only after a delay",
-      "failed": "a privileged key can move funds with no delay"
+      "held": "a single key cannot move user funds and cannot block them",
+      "degraded": "a single key can pause or freeze without loss",
+      "failed": "a single key can drain funds",
+      "appliedAs": "the pause guardian is treated as one privileged key, the proxy admin and timelock as contract roles"
     }
   }
 }

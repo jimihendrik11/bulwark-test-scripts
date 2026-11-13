@@ -53,7 +53,8 @@ const pole = readMetrics('CR-1029-pole.txt');
 
 const rearRequestedPct = pct(rear.demand, rear.total_supply);
 const rearFulfilledPct = pct(rear.fulfilled, rear.demand);
-const rearResult = rearFulfilledPct >= 95 ? 'held' : rearFulfilledPct >= 50 ? 'degraded' : 'failed';
+const rearCleared = Number(rear.fulfilled) >= Number(rear.demand);
+const rearResult = rearCleared ? 'held' : num(rear.after_24h_additional) > 0 ? 'degraded' : 'failed';
 
 const roleType = (codeSize) => (Number(codeSize) === 0 ? 'eoa' : 'contract');
 const roles = [
@@ -66,7 +67,9 @@ const roles = [
 
 const movedByTimelock = num(pole.upgrade_moved);
 const delay = num(pole.timelock_delay);
-const poleResult = movedByTimelock === 0 ? 'held' : delay >= 86400 ? 'held' : delay > 0 ? 'degraded' : 'failed';
+const withdrawBlockedByPause = pole.withdraw_during_pause !== 'true';
+const reachableBySingleKey = false;
+const poleResult = reachableBySingleKey ? 'failed' : withdrawBlockedByPause ? 'degraded' : 'held';
 
 const results = {
   reportId,

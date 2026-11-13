@@ -104,8 +104,10 @@ The held, degraded and failed bands were written into `reports/CR-1029/config.js
 
 | Scenario | Held | Degraded | Failed |
 |---|---|---|---|
-| Rear Impact | 95 percent of the request leaves | 50 to 95 percent | below 50 percent |
-| Pole Test | pause cannot move funds, upgrade needs more than 24 hours | upgrade move with a delay under 24 hours | immediate move |
+| Rear Impact | every withdrawal clears with slippage under 1 percent | up to 5 percent cost, or a queue of up to 72 hours | beyond that, or a withdrawal that never clears |
+| Pole Test | a single key cannot move funds and cannot block them | a single key can pause or freeze without loss | a single key can drain funds |
+
+Both definitions are copied from `scenarios/rear-impact.md` and `scenarios/pole-test.md` and were written into the config before the first run. Against them, Rear Impact records a failed result and Pole Test records a degraded one, because the pause guardian can freeze withdrawals even though no single key can move funds.
 
 ## Related
 

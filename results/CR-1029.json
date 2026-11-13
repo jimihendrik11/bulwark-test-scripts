@@ -65,8 +65,8 @@
       "upgradeReachableBySingleKey": false,
       "upgradeExecutedBy": "timelock (contract), owner of the Comet proxy admin",
       "timelockDelaySec": 172800,
-      "result": "held"
+      "result": "degraded"
     }
   },
-  "generatedAt": "2026-11-13T07:11:07.510Z"
+  "generatedAt": "2026-11-13T07:29:42.976Z"
 }
