@@ -1,0 +1,43 @@
+name: Test Drive
+
+on:
+  workflow_dispatch:
+    inputs:
+      address:
+        description: ERC-20 address to test on Robinhood Chain
+        required: true
+        default: "0x39dBED3a2bd333467115dE45665cC57F813C4571"
+      block:
+        description: Fork block, 0 uses the current head
+        required: false
+        default: "0"
+  push:
+    paths:
+      - "test-drive/**"
+      - "test-drive.sh"
+      - "script/test-drive-*.mjs"
+      - ".github/workflows/test-drive.yml"
+
+jobs:
+  test-drive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run Test Drive
+        env:
+          RPC_URL: https://rpc.mainnet.chain.robinhood.com
+          BLOCK_NUMBER: ${{ github.event.inputs.block || '0' }}
+        run: |
+          chmod +x test-drive.sh
+          ./test-drive.sh ${{ github.event.inputs.address || '0x39dBED3a2bd333467115dE45665cC57F813C4571' }}
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-drive-results
+          path: |
+            results/TD-*.json
+            test-drive/results/td-raw.json

@@ -1,0 +1,13 @@
+[profile.default]
+src = "test"
+test = "test"
+out = "out"
+libs = []
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+fs_permissions = [
+  { access = "read-write", path = "./results" },
+  { access = "read-write", path = "./out" }
+]

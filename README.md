@@ -96,6 +96,36 @@ reports/CR-1001/           earlier report configuration, not executed on a fork
 assets/                    README artwork
 ```
 
+## Test Drive
+
+Automated fork checks for a single ERC-20 on Robinhood Chain, published as dashboard lights instead of a rating.
+
+```bash
+./test-drive.sh 0x39dBED3a2bd333467115dE45665cC57F813C4571
+RPC_URL=<your archive rpc> BLOCK_NUMBER=113441500 ./test-drive.sh 0x39...
+```
+
+What runs:
+
+- Brake Check buys the token at three sizes on a fresh address, sells the whole balance back, then repeats one buy after a one hour warp. It reports whether a sell reverted, with the reason, and the round trip cost above the pool fee.
+- Key Check reads `owner()`, `getOwner()` and `admin()`, classifies the holder as a wallet, multisig, timelock or none, then tries mint, pause, blacklist, fee, upgrade and ownership transfer calls from that key.
+
+Lights come from `test-drive/thresholds.json`, which is bound to `test-drive/signoff.json` by a SHA-256 hash. The report script refuses to write a result when the thresholds changed without a new signature.
+
+Structure:
+
+```text
+test-drive.sh                    one command, resolves the head block, runs the fork, writes the report
+test-drive/foundry.toml          separate workspace so the CR-1029 run is untouched
+test-drive/test/TestDrive.t.sol  Brake and Key checks, writes raw JSON
+test-drive/thresholds.json       light bands
+test-drive/signoff.json          signer, date and threshold hash
+script/test-drive-signoff.mjs    writes or verifies the threshold signature
+script/test-drive-report.mjs     turns raw output into results/TD-<address>.json
+```
+
+Limits worth reading before quoting a light: the result holds for the recorded block, a token can behave differently on mainnet, the public RPC keeps only recent state so a re-run needs the same block while it is still served, and Fuel Check plus Traffic Check are not part of this release.
+
 ## Status of the other reports
 
 `reports/CR-1001` and `results/CR-1001.json` came from the first published script set. They read the chain ID, the block number and the contract bytecode of deBridge, and they did not execute a scenario. That folder stays for reference and is not evidence of an execution.

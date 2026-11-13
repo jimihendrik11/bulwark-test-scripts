@@ -1,0 +1,103 @@
+{
+  "kind": "test_drive",
+  "notARating": true,
+  "label": "Automated Test Drive. Not a BULWARK rating.",
+  "chain": "robinhood",
+  "chainId": 4663,
+  "block": "113441500",
+  "evmBlockNumber": "26406786",
+  "ranAt": "2026-11-13T14:57:50.000Z",
+  "token": {
+    "address": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "name": "Pons",
+    "symbol": "PONS",
+    "decimals": "18",
+    "totalSupply": "1000000000000000000000000000",
+    "verifiedSource": null,
+    "notes": [
+      "Source verification is not part of this run; the explorer blocks scripted checks."
+    ]
+  },
+  "pool": {
+    "address": "0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA",
+    "feeBps": 100,
+    "liquidity": "183145293144708193149530",
+    "kind": "uniswap-v3"
+  },
+  "checks": {
+    "brake": {
+      "light": "green",
+      "sellOk": true,
+      "poolFeeBps": 100,
+      "extraLossBps": 0,
+      "firstRevert": "",
+      "runs": [
+        {
+          "amountInWeth": "50000000000000000",
+          "tokenOut": "646407416968481649223",
+          "wethBack": "49005015135397249",
+          "buyOk": true,
+          "sellOk": true,
+          "lossBps": "198",
+          "extraLossBps": "0",
+          "buyError": "",
+          "sellError": ""
+        },
+        {
+          "amountInWeth": "500000000000000000",
+          "tokenOut": "6462277859081993129399",
+          "wethBack": "490051513123329970",
+          "buyOk": true,
+          "sellOk": true,
+          "lossBps": "198",
+          "extraLossBps": "0",
+          "buyError": "",
+          "sellError": ""
+        },
+        {
+          "amountInWeth": "2000000000000000000",
+          "tokenOut": "25825189443067610391917",
+          "wethBack": "1960224187791999306",
+          "buyOk": true,
+          "sellOk": true,
+          "lossBps": "198",
+          "extraLossBps": "0",
+          "buyError": "",
+          "sellError": ""
+        }
+      ],
+      "delayedRun": {
+        "amountInWeth": "500000000000000000",
+        "tokenOut": "6462277859081993129399",
+        "wethBack": "490051513123329970",
+        "buyOk": true,
+        "sellOk": true,
+        "lossBps": "198",
+        "extraLossBps": "0",
+        "buyError": "",
+        "sellError": ""
+      },
+      "notes": [
+        "Round trips ran at three sizes plus one after a one hour warp."
+      ]
+    },
+    "keys": {
+      "light": "grey",
+      "owner": "0x0000000000000000000000000000000000000000",
+      "ownerType": "none",
+      "paused": null,
+      "powers": [],
+      "attempts": [],
+      "notes": [
+        "owner(), getOwner() and admin() are not exposed, so privileged access could not be resolved."
+      ]
+    }
+  },
+  "canStillChange": [
+    "No owner entry point is exposed, so privileges could not be resolved by this check"
+  ],
+  "thresholdsVersion": "2026-11-13",
+  "thresholdsHash": "ea2d854fc6005e3eaa8f4fe3580a68bd48c9e8c3c5a31c0ea2222a9a5fb952ce",
+  "signedBy": "Nadia Kusuma, Test Director",
+  "rerun": "RPC_URL=<your rpc> ./test-drive.sh 0x39dbed3a2bd333467115de45665cc57f813c4571"
+}

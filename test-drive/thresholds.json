@@ -1,0 +1,14 @@
+{
+  "version": "2026-11-13",
+  "chain": "robinhood",
+  "chainId": 4663,
+  "brake": {
+    "redAboveBps": 1000,
+    "amberAboveBps": 500,
+    "meaning": "Extra round-trip loss above twice the pool fee. Red means a sell costs more than 10 percent beyond the pool fee, amber means more than 5 percent."
+  },
+  "keys": {
+    "dangerousPowers": ["mint", "blacklist", "upgradeTo", "pause"],
+    "meaning": "Red when a single wallet holds a dangerous power. Amber when the owner is a contract or holds powers that do not touch balances. Green when no owner entry point exists."
+  }
+}
