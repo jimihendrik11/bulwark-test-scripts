@@ -126,6 +126,19 @@ script/test-drive-report.mjs     turns raw output into results/TD-<address>.json
 
 Limits worth reading before quoting a light: the result holds for the recorded block, a token can behave differently on mainnet, the public RPC keeps only recent state so a re-run needs the same block while it is still served, and Fuel Check plus Traffic Check are not part of this release.
 
+### Requesting a run without a paid server
+
+The fork runs on GitHub Actions, so no Render worker is needed.
+
+```bash
+node script/test-drive-dispatch.mjs 0x39dBED3a2bd333467115dE45665cC57F813C4571          # dry run
+GH_TOKEN=<token> node script/test-drive-dispatch.mjs 0x39dBED3a2bd333467115dE45665cC57F813C4571 --send
+```
+
+The same run can be started from Actions, workflow `Test Drive request`, without any token on your side. The workflow runs the fork, commits `results/TD-<address>.json` back to the repository and uploads the artifact.
+
+RPC: any endpoint that serves Robinhood Chain works. If Alchemy lists this chain, store the URL as the repository secret `ALCHEMY_RPC_URL` and the workflow uses it; otherwise the public RPC is the default. Redis is not used by this path. For a future always-on request API, Redis Cloud's 30 MB free plan gives the standard TCP endpoint that BullMQ needs; Upstash's free plan is built around its REST API, so confirm its TCP/TLS endpoint is available before depending on it.
+
 ## Status of the other reports
 
 `reports/CR-1001` and `results/CR-1001.json` came from the first published script set. They read the chain ID, the block number and the contract bytecode of deBridge, and they did not execute a scenario. That folder stays for reference and is not evidence of an execution.
