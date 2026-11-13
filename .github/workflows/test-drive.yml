@@ -18,6 +18,9 @@ on:
       - "script/test-drive-*.mjs"
       - ".github/workflows/test-drive.yml"
 
+permissions:
+  contents: write
+
 jobs:
   test-drive:
     runs-on: ubuntu-latest
@@ -34,10 +37,19 @@ jobs:
         run: |
           chmod +x test-drive.sh
           ./test-drive.sh ${{ github.event.inputs.address || '0x39dBED3a2bd333467115dE45665cC57F813C4571' }}
+      - name: Publish the result file
+        run: |
+          node script/test-drive-manifest.mjs
+          git config user.name "bulwark-test-drive"
+          git config user.email "test-drive@bulwarkproof.tech"
+          git add results/TD-*.json results/manifest.json
+          git diff --cached --quiet || git commit -m "Test Drive result for ${{ github.event.inputs.address || '0x39dBED3a2bd333467115dE45665cC57F813C4571' }}"
+          git push
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: test-drive-results
           path: |
             results/TD-*.json
+            results/manifest.json
             test-drive/results/td-raw.json

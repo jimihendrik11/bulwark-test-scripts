@@ -31,9 +31,10 @@ jobs:
           ./test-drive.sh ${{ github.event.client_payload.address || github.event.inputs.address }}
       - name: Publish the result file
         run: |
+          node script/test-drive-manifest.mjs
           git config user.name "bulwark-test-drive"
           git config user.email "test-drive@bulwarkproof.tech"
-          git add results/TD-*.json
+          git add results/TD-*.json results/manifest.json
           git diff --cached --quiet || git commit -m "Test Drive result for ${{ github.event.client_payload.address || github.event.inputs.address }}"
           git push
       - name: Upload results
