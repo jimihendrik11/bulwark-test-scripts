@@ -1,0 +1,48 @@
+{
+  "reportId": "CR-1001",
+  "protocol": "deBridge",
+  "class": "BRG",
+  "chain": "Ethereum",
+  "chainId": 1,
+  "forkBlock": null,
+  "forkBlockPublished": 22000000,
+  "forkBlockNote": "The published report still carries a placeholder block value. A real fork block must be recorded here before this folder is used as evidence.",
+  "contracts": [],
+  "reference": {
+    "stars": 5,
+    "overall": 96,
+    "weakest": "exitLiquidity",
+    "scenarios": [
+      {
+        "id": "frontal_drain",
+        "label": "Frontal Drain",
+        "result": "held",
+        "note": "Common attack classes tested against the contracts."
+      },
+      {
+        "id": "pole_test",
+        "label": "Pole Test",
+        "result": "held",
+        "note": "Privileged key and upgrade path reviewed."
+      },
+      {
+        "id": "side_impact",
+        "label": "Side Impact",
+        "result": "held",
+        "note": "Oracle stress and flash-loan price impact tested."
+      },
+      {
+        "id": "rollover",
+        "label": "Rollover",
+        "result": "held",
+        "note": "Collateral depeg and liquidation path reviewed."
+      },
+      {
+        "id": "rear_impact",
+        "label": "Rear Impact",
+        "result": "held",
+        "note": "Exit queue and stressed withdrawal tested."
+      }
+    ]
+  }
+}

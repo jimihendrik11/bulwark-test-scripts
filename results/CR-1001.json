@@ -1,0 +1,60 @@
+{
+  "reportId": "CR-1001",
+  "protocol": "deBridge",
+  "chain": "Ethereum",
+  "generatedAt": "2026-11-13T02:57:23.444Z",
+  "rpc": {
+    "chainId": 1,
+    "blockNumber": 26403194
+  },
+  "checks": [
+    {
+      "name": "chainId",
+      "value": 1,
+      "status": "pass"
+    },
+    {
+      "name": "blockNumber",
+      "value": 26403194,
+      "status": "pass"
+    }
+  ],
+  "reference": {
+    "stars": 5,
+    "overall": 96,
+    "weakest": "exitLiquidity",
+    "scenarios": [
+      {
+        "id": "frontal_drain",
+        "label": "Frontal Drain",
+        "result": "held",
+        "note": "Common attack classes tested against the contracts."
+      },
+      {
+        "id": "pole_test",
+        "label": "Pole Test",
+        "result": "held",
+        "note": "Privileged key and upgrade path reviewed."
+      },
+      {
+        "id": "side_impact",
+        "label": "Side Impact",
+        "result": "held",
+        "note": "Oracle stress and flash-loan price impact tested."
+      },
+      {
+        "id": "rollover",
+        "label": "Rollover",
+        "result": "held",
+        "note": "Collateral depeg and liquidation path reviewed."
+      },
+      {
+        "id": "rear_impact",
+        "label": "Rear Impact",
+        "result": "held",
+        "note": "Exit queue and stressed withdrawal tested."
+      }
+    ]
+  },
+  "note": "Scenario outcomes are reference values from the published report, not re-executed."
+}
