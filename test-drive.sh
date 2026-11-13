@@ -16,6 +16,7 @@ cd "$ROOT"
 node script/test-drive-signoff.mjs --verify
 
 cd "$ROOT/test-drive"
+mkdir -p results
 TEST_DRIVE_RPC="$RPC" \
 TEST_DRIVE_TOKEN="$ADDRESS" \
 TEST_DRIVE_BLOCK="$BLOCK" \
