@@ -18,6 +18,7 @@ contract PoleTestTest is Base {
     bytes32 internal constant IMPL_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;
 
     address internal constant LARGEST_SUPPLIER = 0x7f714b13249BeD8fdE2ef3FBDfB18Ed525544B03;
+    address internal constant CONFIGURATOR = 0x316f9708bB98af7dA9c68C1C3b5e79039cD336E3;
 
     function testPole() external {
         uint256 forkBlock = block.number;
@@ -74,6 +75,9 @@ contract PoleTestTest is Base {
         out = u(out, lineStr("proxy_admin_owner", vm.toString(proxyAdminOwner)));
         out = u(out, lineStr("implementation", vm.toString(implementation)));
         out = u(out, lineStr("timelock_admin", vm.toString(timelockAdmin)));
+        out = u(out, lineStr("configurator", vm.toString(CONFIGURATOR)));
+        out = u(out, lineStr("configurator_governor", vm.toString(IConfigurator(CONFIGURATOR).governor())));
+        out = u(out, line("configurator_code", CONFIGURATOR.code.length));
         out = u(out, line("timelock_delay", timelockDelay));
         out = u(out, line("governor_code", governor.code.length));
         out = u(out, line("pause_guardian_code", guardian.code.length));

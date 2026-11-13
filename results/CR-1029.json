@@ -2,7 +2,7 @@
   "reportId": "CR-1029",
   "protocol": "Compound V3 USDC (Ethereum)",
   "forkBlock": 26404380,
-  "commit": "299005a8b3d5a62e25ab318a673065ce8199dba7",
+  "commit": "566a17c5cc0bc203c70856ac30fc4a781860447c",
   "toolchain": {
     "forge": "forge Version: 1.9.0"
   },
@@ -53,6 +53,11 @@
           "type": "contract"
         },
         {
+          "role": "configuratorGovernor",
+          "holder": "0x6d903f6003cca6255D85CcA4D3B5E5146dC33925",
+          "type": "timelock"
+        },
+        {
           "role": "cometImplementation",
           "holder": "0x0B07565A8ef48170e15918b251EbD95109B23255",
           "type": "contract"
@@ -68,5 +73,5 @@
       "result": "degraded"
     }
   },
-  "generatedAt": "2026-11-13T07:47:17.202Z"
+  "generatedAt": "2026-11-13T08:06:10.002Z"
 }

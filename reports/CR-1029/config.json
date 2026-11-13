@@ -11,13 +11,15 @@
     "cometProxyAdmin": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779",
     "timelock": "0x6d903f6003cca6255D85CcA4D3B5E5146dC33925",
     "governor": "0x309a862bbC1A00e45506cB8A802D1ff10004c8C0",
-    "pauseGuardian": "0xbbf3f1421D886E9b2c5D716B5192aC998af2012c"
+    "pauseGuardian": "0xbbf3f1421D886E9b2c5D716B5192aC998af2012c",
+    "configurator": "0x316f9708bB98af7dA9c68C1C3b5e79039cD336E3"
   },
   "roles": {
     "cometGovernor": "timelock",
     "timelockAdmin": "governor",
     "proxyAdminOwner": "timelock",
-    "pauseGuardian": "guardian"
+    "pauseGuardian": "guardian",
+    "configuratorGovernor": "timelock"
   },
   "scenarios": {
     "rear_impact": {

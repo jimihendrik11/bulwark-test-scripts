@@ -71,6 +71,11 @@ const roles = [
   { role: 'cometGovernor', holder: pole.governor, type: roleType(pole.governor_code) },
   { role: 'governor', holder: pole.timelock_admin, type: roleType(pole.timelock_admin_code) },
   { role: 'cometProxyAdmin', holder: pole.proxy_admin, type: roleType(pole.proxy_admin_code) },
+  {
+    role: 'configuratorGovernor',
+    holder: pole.configurator_governor,
+    type: String(pole.configurator_governor).toLowerCase() === String(pole.governor).toLowerCase() ? 'timelock' : 'contract'
+  },
   { role: 'cometImplementation', holder: pole.implementation, type: roleType(pole.implementation_code) }
 ];
 

@@ -103,3 +103,7 @@ interface IProxyAdmin {
     function owner() external view returns (address);
     function upgrade(address cometProxy, address newImplementation) external;
 }
+
+interface IConfigurator {
+    function governor() external view returns (address);
+}
