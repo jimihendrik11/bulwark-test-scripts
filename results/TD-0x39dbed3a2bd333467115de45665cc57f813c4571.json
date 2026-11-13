@@ -4,9 +4,9 @@
   "label": "Automated Test Drive. Not a BULWARK rating.",
   "chain": "robinhood",
   "chainId": 4663,
-  "block": "113455521",
-  "evmBlockNumber": "26406903",
-  "ranAt": "2026-11-13T15:21:44.000Z",
+  "block": "113457959",
+  "evmBlockNumber": "26406925",
+  "ranAt": "2026-11-13T15:25:53.000Z",
   "token": {
     "address": "0x39dbed3a2bd333467115de45665cc57f813c4571",
     "name": "Pons",
@@ -34,8 +34,8 @@
       "runs": [
         {
           "amountInWeth": "50000000000000000",
-          "tokenOut": "651616325533589627780",
-          "wethBack": "49005021096724493",
+          "tokenOut": "651615849751825965191",
+          "wethBack": "49005021096716791",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -45,8 +45,8 @@
         },
         {
           "amountInWeth": "500000000000000000",
-          "tokenOut": "6513639538170987267419",
-          "wethBack": "490052108863538211",
+          "tokenOut": "6513634783117035442676",
+          "wethBack": "490052108862768622",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -56,8 +56,8 @@
         },
         {
           "amountInWeth": "2000000000000000000",
-          "tokenOut": "26020964991890667818766",
-          "wethBack": "1960233698746273619",
+          "tokenOut": "26020946008441670922746",
+          "wethBack": "1960233698733991615",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -68,8 +68,8 @@
       ],
       "delayedRun": {
         "amountInWeth": "500000000000000000",
-        "tokenOut": "6513639538170987267419",
-        "wethBack": "490052108863538211",
+        "tokenOut": "6513634783117035442676",
+        "wethBack": "490052108862768622",
         "buyOk": true,
         "sellOk": true,
         "lossBps": "198",
