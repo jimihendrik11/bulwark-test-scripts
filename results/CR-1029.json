@@ -2,7 +2,7 @@
   "reportId": "CR-1029",
   "protocol": "Compound V3 USDC (Ethereum)",
   "forkBlock": 26404380,
-  "commit": "566a17c5cc0bc203c70856ac30fc4a781860447c",
+  "commit": "0d8610daca05216909c774099d40455ad3f90b44",
   "toolchain": {
     "forge": "forge Version: 1.9.0"
   },
@@ -73,5 +73,5 @@
       "result": "degraded"
     }
   },
-  "generatedAt": "2026-11-13T08:06:10.002Z"
+  "generatedAt": "2026-11-13T08:07:23.975Z"
 }
