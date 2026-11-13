@@ -5,7 +5,9 @@ cr-1029-fork:
   stage: fork
   image: node:20-bookworm
   rules:
-    - if: '$RPC_URL_ARCHIVE'
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
   variables:
     RPC_URL: $RPC_URL_ARCHIVE
   before_script:
@@ -14,6 +16,8 @@ cr-1029-fork:
     - export PATH="$HOME/.foundry/bin:$PATH"
     - foundryup > /dev/null
   script:
+    - if [ -z "$RPC_URL" ]; then RPC_URL=https://rpc.mevblocker.io; fi
+    - export RPC_URL
     - ./run.sh CR-1029 2>&1 | tee fork-run.log
   artifacts:
     when: always
