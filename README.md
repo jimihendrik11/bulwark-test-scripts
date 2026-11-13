@@ -4,12 +4,12 @@
 
 # BULWARK test scripts
 
-**Re-runnable checks for a published Crash Report**
+**First live fork execution: Compound V3 USDC, two scenarios, real numbers**
 
 <br>
 
 <a href="https://bulwarkproof.tech"><img src="https://img.shields.io/badge/OPEN_THE_SITE-7C1522?style=for-the-badge&labelColor=241B19" alt="Open the site"></a>
-<a href="https://bulwarkproof.tech/ratings/debridge/"><img src="https://img.shields.io/badge/CR--1001-REPORT-E0A82E?style=for-the-badge&labelColor=241B19" alt="CR-1001 report"></a>
+<a href="https://bulwarkproof.tech/ratings/compound-v3/"><img src="https://img.shields.io/badge/CR--1029-REPORT-E0A82E?style=for-the-badge&labelColor=241B19" alt="CR-1029 report"></a>
 <a href="https://gitlab.com/razorxpredator/bulwark"><img src="https://img.shields.io/badge/PLATFORM-REPO-C94B4B?style=for-the-badge&labelColor=241B19" alt="Platform repository"></a>
 <a href="https://x.com/BulwarkScore"><img src="https://img.shields.io/badge/X-@BulwarkScore-000000?style=for-the-badge&labelColor=241B19" alt="X"></a>
 
@@ -17,60 +17,95 @@
 
 ---
 
-Every BULWARK Crash Report claims it can be re-run. This repository is the proof for the first published report, CR-1001.
+This repository runs two of the five BULWARK scenarios against Compound V3 USDC on an Ethereum mainnet fork. Every step is a contract call. The numbers below come from `results/CR-1029.json`, not from a written report.
 
-One command reads the report configuration, connects to a public RPC for the reported chain, re-reads every value the report relies on, and compares the output with the recorded result.
+This is not a complete Crash Report. Two of five scenarios were executed, for one protocol.
 
 | Item | Value |
 |---|---|
-| Report | CR-1001, deBridge, Bridges and cross-chain |
+| Report | CR-1029, Compound V3, USDC market |
 | Chain | Ethereum, chain ID 1 |
-| Command | `RPC_URL=<endpoint> ./run.sh CR-1001` |
-| Runtime | Node.js 18 or newer, no other dependency |
+| Fork block | 26404380 |
+| Command | `RPC_URL=<endpoint> ./run.sh CR-1029` |
+| Runtime | Foundry, Node.js 18 or newer |
 
-## Quick start
+## Results at the fork block
+
+Rear Impact, 30 percent of supplied USDC withdrawn at once:
+
+| Measure | Value |
+|---|---|
+| Total supply | 357,646,821.51 USDC |
+| Cash in the market before the run | 47,923,257.93 USDC |
+| Withdrawal demand, 30 percent | 107,294,046.45 USDC |
+| Actually withdrawn by three suppliers | 37,801,885.24 USDC, 35.23 percent of demand |
+| Utilisation before and after | 89.01 percent to 99.53 percent |
+| First revert, supplier 1 | `ERC20: transfer amount exceeds balance` for 69,492,161.21 USDC |
+| Additional amount after 24 hours | 0.00 USDC |
+
+Pole Test, one privileged key assumed misused:
+
+| Measure | Value |
+|---|---|
+| Pause guardian | 0xbbf3f1421D886E9b2c5D716B5192aC998af2012c |
+| Effect of a pause | withdrawals revert, funds frozen, not lost |
+| Effect of an unpause | withdrawals work again |
+| Upgrade path | governor proposal, then timelock, then proxy admin upgrade |
+| Timelock delay | 172800 seconds, 48 hours |
+| Amount a timelock upgrade can move | 47,923,256.93 USDC |
+
+## How to re-run
 
 ```bash
-git clone https://gitlab.com/razorxpredator/bulwark-test-scripts.git
+git clone https://gitlab.com/razorxpredator/bulwark-test-scripts
 cd bulwark-test-scripts
-RPC_URL=https://ethereum-rpc.publicnode.com ./run.sh CR-1001
+curl -L https://foundry.paradigm.xyz | bash && foundryup
+export RPC_URL=<your own Ethereum archive endpoint>
+./run.sh CR-1029
 ```
 
-The script prints one line per check, then the reference outcome, then PASS.
+The last line is `MATCH` when the numbers equal `results/CR-1029.json`, and `MISMATCH` with both sets printed when they do not. On Windows, `run.ps1 CR-1029` does the same after `$env:RPC_URL` is set.
 
-## What it checks
+Pipelines run the same command with `RPC_URL_ARCHIVE` stored as a masked CI variable and keep the result file, the full log and the raw test output as artifacts.
 
-| Check | Source |
-|---|---|
-| Chain ID matches the report | `eth_chainId` on the RPC |
-| Latest block is readable | `eth_blockNumber` on the RPC |
-| Each recorded address still holds code | `eth_getCode` per address |
+## How to verify
 
-The output is written to `results/CR-1001.json` and compared against the file already in this repository.
+1. Read `reports/CR-1029/config.json` for the fork block and every contract address.
+2. Open the Comet proxy at `0xc3d688B66703497DAA19211EEdff47f25384cdc3` on Etherscan and confirm the implementation matches `0x0B07565A8ef48170e15918b251EbD95109B23255` in the Read as Proxy tab.
+3. Call `governor()` and `pauseGuardian()` on the proxy and compare them with the values in the result file.
+4. Call `totalSupply()` and check the USDC balance of the proxy at block 26404380 with a block-specific query.
+5. Compare `results/CR-1029.json` with the run output printed by `./run.sh`.
 
-## What it does not do
-
-Scenario outcomes such as Frontal Drain or Rear Impact are carried as reference values from the published report. Re-executing a scenario needs the protocol fixture and a fork runner, which are not part of this snapshot. Nothing here claims a scenario was re-run.
-
-The fork block recorded in the configuration is a placeholder inherited from the published report and is marked as such. It is replaced once a real fork run is recorded.
+What the numbers mean: `requestedUsdc` is 30 percent of supply at the fork block, `fulfilledUsdc` is what actually left the market, `fulfilledPct` is the ratio of the two, `utilizationBefore` and `utilizationAfter` come from `getUtilization()`, and `firstRevert` records the first supplier whose withdrawal reverted along with the revert string.
 
 ## Layout
 
 ```text
-run.sh                     entry point
-run.mjs                    checks, comparison and output
+foundry.toml               Solidity 0.8.24, via-ir
+run.sh, run.ps1            one command: test, build the result, compare
+reports/CR-1029/           fork block, addresses, parameters, thresholds
+test/CR-1029/              RearImpact.t.sol, PoleTest.t.sol, shared helpers
+script/report.mjs          turns test output into results/CR-1029.json
+results/CR-1029.json       the recorded numbers
 scenarios/                 one document per scenario
-reports/CR-1001/           chain, addresses and reference outcome
-results/CR-1001.json       output of the last run
+reports/CR-1001/           earlier report configuration, not executed on a fork
 assets/                    README artwork
-LICENSE
 ```
 
-## Adding a report
+## Status of the other reports
 
-1. Create `reports/CR-XXXX/config.json` with the report id, chain, chain ID, contract addresses and the reference outcome.
-2. Create `results/CR-XXXX.json` with an empty checks array.
-3. Run `RPC_URL=<endpoint> ./run.sh CR-XXXX` and commit the produced result.
+`reports/CR-1001` and `results/CR-1001.json` came from the first published script set. They read the chain ID, the block number and the contract bytecode of deBridge, and they did not execute a scenario. That folder stays for reference and is not evidence of an execution.
+
+The three scenarios not run for CR-1029 are Frontal Drain, Side Impact and Rollover. Their status on the site stays Review.
+
+## Thresholds
+
+The held, degraded and failed bands were written into `reports/CR-1029/config.json` before the first run and are unchanged:
+
+| Scenario | Held | Degraded | Failed |
+|---|---|---|---|
+| Rear Impact | 95 percent of the request leaves | 50 to 95 percent | below 50 percent |
+| Pole Test | pause cannot move funds, upgrade needs more than 24 hours | upgrade move with a delay under 24 hours | immediate move |
 
 ## Related
 

@@ -1,0 +1,72 @@
+{
+  "reportId": "CR-1029",
+  "protocol": "Compound V3 USDC (Ethereum)",
+  "forkBlock": 26404380,
+  "commit": "3958e999fca88e784ce708aadd2939066ba26849",
+  "toolchain": {
+    "forge": "forge Version: 1.9.0"
+  },
+  "executed": true,
+  "scenarios": {
+    "rear_impact": {
+      "requestedPct": 30,
+      "requestedUsdc": "107294046.453429",
+      "fulfilledUsdc": "37801885.244661",
+      "fulfilledPct": 35.23,
+      "suppliersUsed": 3,
+      "suppliersSucceeded": 2,
+      "totalSupplyUsdc": "357646821.511430",
+      "cashBeforeUsdc": "47923257.925797",
+      "utilizationBefore": 89.0068,
+      "utilizationAfter": 99.5264,
+      "supplyRateAfter": 10681855427,
+      "firstRevert": {
+        "index": 1,
+        "reason": "ERC20: transfer amount exceeds balance"
+      },
+      "after24h": {
+        "additionalFulfilledUsdc": "0.000000",
+        "attemptsSucceeded": 0
+      },
+      "result": "failed"
+    },
+    "pole_test": {
+      "roles": [
+        {
+          "role": "pauseGuardian",
+          "holder": "0xbbf3f1421D886E9b2c5D716B5192aC998af2012c",
+          "type": "contract"
+        },
+        {
+          "role": "cometGovernor",
+          "holder": "0x6d903f6003cca6255D85CcA4D3B5E5146dC33925",
+          "type": "contract"
+        },
+        {
+          "role": "governor",
+          "holder": "0x309a862bbC1A00e45506cB8A802D1ff10004c8C0",
+          "type": "contract"
+        },
+        {
+          "role": "cometProxyAdmin",
+          "holder": "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779",
+          "type": "contract"
+        },
+        {
+          "role": "cometImplementation",
+          "holder": "0x0B07565A8ef48170e15918b251EbD95109B23255",
+          "type": "contract"
+        }
+      ],
+      "pauseImpact": "funds frozen, not lost",
+      "pauseRevertReason": "custom 9e87fac8",
+      "withdrawWorksAfterUnpause": true,
+      "upgradeImpactUsdc": "47923256.925797",
+      "upgradeReachableBySingleKey": false,
+      "upgradeExecutedBy": "timelock (contract), owner of the Comet proxy admin",
+      "timelockDelaySec": 172800,
+      "result": "held"
+    }
+  },
+  "generatedAt": "2026-11-13T07:10:57.130Z"
+}

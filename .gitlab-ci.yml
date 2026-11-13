@@ -1,0 +1,24 @@
+stages:
+  - fork
+
+cr-1029-fork:
+  stage: fork
+  image: node:20-bookworm
+  rules:
+    - if: '$RPC_URL_ARCHIVE'
+  variables:
+    RPC_URL: $RPC_URL_ARCHIVE
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq curl git > /dev/null
+    - curl -sL https://foundry.paradigm.xyz | bash > /dev/null
+    - export PATH="$HOME/.foundry/bin:$PATH"
+    - foundryup > /dev/null
+  script:
+    - ./run.sh CR-1029 2>&1 | tee fork-run.log
+  artifacts:
+    when: always
+    expire_in: 90 days
+    paths:
+      - results/CR-1029.json
+      - fork-run.log
+      - out/
