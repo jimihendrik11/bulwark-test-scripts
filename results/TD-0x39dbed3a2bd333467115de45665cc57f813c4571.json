@@ -4,9 +4,9 @@
   "label": "Automated Test Drive. Not a BULWARK rating.",
   "chain": "robinhood",
   "chainId": 4663,
-  "block": "113441500",
-  "evmBlockNumber": "26406786",
-  "ranAt": "2026-11-13T14:57:50.000Z",
+  "block": "113455521",
+  "evmBlockNumber": "26406903",
+  "ranAt": "2026-11-13T15:21:44.000Z",
   "token": {
     "address": "0x39dbed3a2bd333467115de45665cc57f813c4571",
     "name": "Pons",
@@ -21,7 +21,7 @@
   "pool": {
     "address": "0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA",
     "feeBps": 100,
-    "liquidity": "183145293144708193149530",
+    "liquidity": "131921256286365857734648",
     "kind": "uniswap-v3"
   },
   "checks": {
@@ -34,8 +34,8 @@
       "runs": [
         {
           "amountInWeth": "50000000000000000",
-          "tokenOut": "646407416968481649223",
-          "wethBack": "49005015135397249",
+          "tokenOut": "651616325533589627780",
+          "wethBack": "49005021096724493",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -45,8 +45,8 @@
         },
         {
           "amountInWeth": "500000000000000000",
-          "tokenOut": "6462277859081993129399",
-          "wethBack": "490051513123329970",
+          "tokenOut": "6513639538170987267419",
+          "wethBack": "490052108863538211",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -56,8 +56,8 @@
         },
         {
           "amountInWeth": "2000000000000000000",
-          "tokenOut": "25825189443067610391917",
-          "wethBack": "1960224187791999306",
+          "tokenOut": "26020964991890667818766",
+          "wethBack": "1960233698746273619",
           "buyOk": true,
           "sellOk": true,
           "lossBps": "198",
@@ -68,8 +68,8 @@
       ],
       "delayedRun": {
         "amountInWeth": "500000000000000000",
-        "tokenOut": "6462277859081993129399",
-        "wethBack": "490051513123329970",
+        "tokenOut": "6513639538170987267419",
+        "wethBack": "490052108863538211",
         "buyOk": true,
         "sellOk": true,
         "lossBps": "198",
