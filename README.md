@@ -125,6 +125,19 @@ node script/preview.mjs --singleKey=true            # same check with a differen
 
 `script/preview.mjs` reads the recorded result and needs no RPC and no fork, so the band logic can be inspected at any time. It writes nothing. Its flags change one assumption at a time to show which band would follow.
 
+## Privacy Rings, phase 1
+
+The second report in this repository is a read-only check of Privacy Rings on mainnet. It records the program, the upgrade authority, the authorities held by the protocol config account, and the permission flags, all read from the chain at the moment of the run. No transaction is sent and no proof is involved.
+
+```bash
+bash run-phase1.sh          # read the chain and compare with the recorded result
+bash run-phase1.sh --create # write a fresh result
+```
+
+The output is `results/PRV-RINGS-phase1.json`, and the run prints MATCH when the on-chain facts equal the recorded ones. The slot changes on every run, so it is printed but not compared.
+
+Build verification is recorded as not verified. The build was not reproduced from the recorded commit here, and the documentation publishes no program hash to compare against, so the result file states that plainly instead of claiming a match.
+
 ## Related
 
 | Where | What |

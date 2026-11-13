@@ -1,0 +1,61 @@
+{
+  "reportId": "PRV-RINGS",
+  "protocol": "Privacy Rings",
+  "network": "mainnet-beta",
+  "scope": "Default Ring only. Custom Rings are out of scope until publicly released.",
+  "programs": {
+    "privacyProgram": "ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW",
+    "userRegistry": "regy3WAeRXMYuMYxr5iK3Bf9Arr3PcxGxyzAddbiqDQ",
+    "stateMerkleTree": "777pvSGe5LaBd9nCczvE2FXEauiwtfGJ5XRpjKyniGor",
+    "solInterfacePda": "CiNmas621VuyofiDSrEPfTXHKrdZuB6jMKECyNiMpLXE"
+  },
+  "source": {
+    "repository": "helius-labs/privacy-rings",
+    "aliasRepository": "helius-labs/zolana",
+    "commit": "20b6c9b37bb58ebf68488c0df872c14997898d13",
+    "commitDate": "2026-11-13T00:52:59Z",
+    "note": "Both repository names resolve to the same project. The commit is the head of main when phase 1 was recorded."
+  },
+  "sdk": {
+    "typescript": "@heliuslabs/spr ^0.9.0-alpha",
+    "peer": "@solana/kit ^8.3.0"
+  },
+  "docs": {
+    "addresses": "https://www.helius.dev/docs/privacy/addresses",
+    "security": "https://www.helius.dev/docs/privacy/security"
+  },
+  "buildVerification": {
+    "status": "not verified",
+    "tool": "solana-verify",
+    "reason": "The build was not reproduced from the recorded commit in this environment. No published program hash was found in the documentation, so a byte for byte match could not be asserted either way."
+  },
+  "privilegedInstructions": [
+    "protocol_config:init",
+    "protocol_config:update",
+    "protocol_config:pause_tree",
+    "ring_config:create",
+    "ring_config:update",
+    "ring_config:update_owner",
+    "ring_config:set_activation",
+    "set_tree_fees",
+    "claim_tree_lamports",
+    "close_nullifier_pdas",
+    "batch_update_nullifier_tree"
+  ],
+  "reportedInputs": {
+    "audits": [
+      { "firm": "Certora", "scope": "program and circuits", "date": "October 2026" },
+      { "firm": "zkSecurity", "scope": "program and circuits", "date": "August 2026" },
+      { "firm": "OtterSec", "scope": "waiting for report", "date": null }
+    ],
+    "trustedSetup": {
+      "completed": "2026-11-02",
+      "contributors": ["Blueshift", "Solana Foundation", "Certora", "OtterSec", "zkSecurity", "Zcash"],
+      "contributionsPerCircuit": 15
+    }
+  },
+  "disclosure": {
+    "securityFindings": "Private to Helius first, through their security channel or bug bounty, wait 14 days or until a fix is confirmed.",
+    "nonSecurityFindings": "On-chain facts such as a single-key authority may be published, with a courtesy notice to Helius before posting."
+  }
+}

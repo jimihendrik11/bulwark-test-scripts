@@ -1,0 +1,23 @@
+name: PRV-RINGS phase 1
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  phase1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Read the on-chain authority set and compare
+        run: bash run-phase1.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prv-rings-phase1
+          path: results/PRV-RINGS-phase1.json

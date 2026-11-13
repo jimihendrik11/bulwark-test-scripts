@@ -1,0 +1,103 @@
+{
+  "reportId": "PRV-RINGS",
+  "protocol": "Privacy Rings",
+  "network": "mainnet-beta",
+  "programId": "ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW",
+  "slot": 468863143,
+  "executed": true,
+  "program": {
+    "executable": true,
+    "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "programDataAddress": "CMV9fRyA66cwi1ce4bynyXR9zDU7f99gXZWCUNesp8xr",
+    "dataLength": 641949,
+    "lastDeployedSlot": 467127839
+  },
+  "upgradeAuthority": {
+    "holder": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB",
+    "type": "keypair",
+    "accountOwner": null
+  },
+  "protocolConfig": {
+    "address": "EienwBSpsbAetT3RAAMzVA9rB5RHgCF7yTH7FFST6AK5",
+    "authorities": [
+      {
+        "role": "protocol_authority",
+        "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+        "type": "wallet"
+      },
+      {
+        "role": "tree_creation_authority",
+        "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+        "type": "wallet"
+      },
+      {
+        "role": "forester_authority",
+        "holder": "B5df3kMmMxwqRUwWPffiECeqAL1ht27G1ES8guKHKi5K",
+        "type": "keypair"
+      },
+      {
+        "role": "ring_creation_authority",
+        "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+        "type": "wallet"
+      },
+      {
+        "role": "fee_authority",
+        "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+        "type": "wallet"
+      }
+    ],
+    "permissions": {
+      "tree_creation_is_permissionless": false,
+      "ring_activation_is_permissionless": false,
+      "spl_interface_creation_is_permissionless": true,
+      "next_tree_id": 1
+    }
+  },
+  "buildVerification": {
+    "status": "not verified",
+    "tool": "solana-verify",
+    "reason": "The build was not reproduced from the recorded commit in this environment. No published program hash was found in the documentation, so a byte for byte match could not be asserted either way."
+  },
+  "reportedInputs": {
+    "audits": [
+      {
+        "firm": "Certora",
+        "scope": "program and circuits",
+        "date": "October 2026"
+      },
+      {
+        "firm": "zkSecurity",
+        "scope": "program and circuits",
+        "date": "August 2026"
+      },
+      {
+        "firm": "OtterSec",
+        "scope": "waiting for report",
+        "date": null
+      }
+    ],
+    "trustedSetup": {
+      "completed": "2026-11-02",
+      "contributors": [
+        "Blueshift",
+        "Solana Foundation",
+        "Certora",
+        "OtterSec",
+        "zkSecurity",
+        "Zcash"
+      ],
+      "contributionsPerCircuit": 15
+    }
+  },
+  "source": {
+    "repository": "helius-labs/privacy-rings",
+    "aliasRepository": "helius-labs/zolana",
+    "commit": "20b6c9b37bb58ebf68488c0df872c14997898d13",
+    "commitDate": "2026-11-13T00:52:59Z",
+    "note": "Both repository names resolve to the same project. The commit is the head of main when phase 1 was recorded."
+  },
+  "sdk": {
+    "typescript": "@heliuslabs/spr ^0.9.0-alpha",
+    "peer": "@solana/kit ^8.3.0"
+  }
+}
