@@ -113,6 +113,8 @@ const permissions = {
 const results = {
   reportId: config.reportId,
   protocol: config.protocol,
+  framing: config.framing,
+  statusNote: config.statusNote,
   network: config.network,
   programId: PROGRAM,
   slot,

@@ -1,9 +1,11 @@
 {
   "reportId": "PRV-RINGS",
   "protocol": "Privacy Rings",
+  "framing": "Independent on-chain verification. Not a Crash Report, no score and no stars.",
+  "statusNote": "Phase 1 complete. Phases 2 to 4 require a localnet with the prover and are out of scope for this publication.",
   "network": "mainnet-beta",
   "programId": "ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW",
-  "slot": 468873597,
+  "slot": 468875740,
   "executed": true,
   "program": {
     "executable": true,

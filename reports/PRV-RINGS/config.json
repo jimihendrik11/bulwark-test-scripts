@@ -83,5 +83,7 @@
   "disclosure": {
     "securityFindings": "Private to Helius first, through their security channel or bug bounty, wait 14 days or until a fix is confirmed.",
     "nonSecurityFindings": "On-chain facts such as a single-key authority may be published, with a courtesy notice to Helius before posting."
-  }
+  },
+  "framing": "Independent on-chain verification. Not a Crash Report, no score and no stars.",
+  "statusNote": "Phase 1 complete. Phases 2 to 4 require a localnet with the prover and are out of scope for this publication."
 }
