@@ -194,3 +194,6 @@ Build verification runs inside the same command and writes `results/PRV-RINGS-bu
 ## License
 
 MIT, see [LICENSE](./LICENSE).
+
+The site reads results/ and results/manifest.json from this repository at runtime, so a published run appears on bulwarkproof.tech without rebuilding the site.
+
