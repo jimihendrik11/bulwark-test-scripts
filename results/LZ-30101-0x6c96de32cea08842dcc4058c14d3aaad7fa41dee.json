@@ -1,0 +1,385 @@
+{
+  "kind": "layerzero_check",
+  "notARating": true,
+  "label": "Automated Test Drive. Not a BULWARK rating.",
+  "oapp": {
+    "address": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+    "eid": 30101,
+    "chain": "ethereum"
+  },
+  "ranAt": "2026-11-14T04:05:23.264Z",
+  "routes": [
+    {
+      "dstEid": "30110",
+      "dstChain": "arbitrum",
+      "receiver": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30383",
+      "dstChain": "plasma",
+      "receiver": "0x02ca37966753bdddf11216b73b16c1de756a7cf9",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30101",
+      "dstChain": "ethereum",
+      "receiver": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+      "confirmations": 1000,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x4be02c7e81bcd78ead40aac095a2115541f86c52",
+          "operator": "Canary Sponsored"
+        },
+        {
+          "address": "0x6a02d83e8d433304bba74ef1c427913958187142",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0x947bb89919d1e5996d6c46223626ac2e97bcf8a3",
+          "operator": "USDT0"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30295",
+      "dstChain": "flare",
+      "receiver": "0x567287d2a9829215a37e3b88843d32f9221e7588",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30109",
+      "dstChain": "polygon",
+      "receiver": "0x6ba10300f0dc58b7a1e4c0e41f5dabb7d7829e13",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30320",
+      "dstChain": "unichain",
+      "receiver": "0xc07be8994d035631c36fb4a89c918cefb2f03ec3",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30274",
+      "dstChain": "xlayer",
+      "receiver": "0x94bcca6bdfd6a61817ab0e960bfede4984505554",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30367",
+      "dstChain": "hyperliquid",
+      "receiver": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30362",
+      "dstChain": "bera",
+      "receiver": "0x3dc96399109df5ceb2c226664a086140bd0379cb",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30111",
+      "dstChain": "optimism",
+      "receiver": "0xf03b4d9ac1d5d1e7c4cef54c2a313b9fe051a0ad",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    }
+  ],
+  "routeLight": "green",
+  "peers": {
+    "owner": "0x4dff9b5b0143e642a3f63a5bcf2d1c328e600bf8",
+    "ownerType": "multisig",
+    "ownerCodeSize": 171,
+    "paths": [
+      {
+        "dstEid": "30110",
+        "chain": "arbitrum",
+        "peer": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30383",
+        "peer": "0x02ca37966753bdddf11216b73b16c1de756a7cf9",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30101",
+        "chain": "ethereum",
+        "peer": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30295",
+        "peer": "0x567287d2a9829215a37e3b88843d32f9221e7588",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30109",
+        "chain": "polygon",
+        "peer": "0x6ba10300f0dc58b7a1e4c0e41f5dabb7d7829e13",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30320",
+        "peer": "0xc07be8994d035631c36fb4a89c918cefb2f03ec3",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30274",
+        "peer": "0x94bcca6bdfd6a61817ab0e960bfede4984505554",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30367",
+        "peer": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30362",
+        "peer": "0x3dc96399109df5ceb2c226664a086140bd0379cb",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30111",
+        "chain": "optimism",
+        "peer": "0xf03b4d9ac1d5d1e7c4cef54c2a313b9fe051a0ad",
+        "peerCode": true,
+        "codeSize": 2739
+      }
+    ],
+    "light": "amber"
+  },
+  "supply": {
+    "kind": "adapter",
+    "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "decimals": 6,
+    "locked": 3576339032.283624,
+    "remotes": [
+      {
+        "eid": "30110",
+        "chain": "arbitrum",
+        "peer": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
+        "kind": "adapter",
+        "token": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+        "locked": 4.013209
+      },
+      {
+        "eid": "30101",
+        "chain": "ethereum",
+        "peer": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+        "kind": "adapter",
+        "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "locked": 3576339032.283624
+      },
+      {
+        "eid": "30109",
+        "chain": "polygon",
+        "peer": "0x6ba10300f0dc58b7a1e4c0e41f5dabb7d7829e13",
+        "kind": "adapter",
+        "token": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+        "locked": 0
+      },
+      {
+        "eid": "30111",
+        "chain": "optimism",
+        "peer": "0xf03b4d9ac1d5d1e7c4cef54c2a313b9fe051a0ad",
+        "kind": "adapter",
+        "token": "0x01bff41798a0bcf287b996046ca68b395dbc1071",
+        "locked": 0
+      }
+    ],
+    "light": "grey",
+    "note": "Adapter peers hold the underlying token instead of exposing totalSupply; a like-for-like supply total needs the per-chain design documented by the issuer."
+  },
+  "canStillChange": [
+    "Ownership sits behind a multisig; the configuration can change when signers agree"
+  ],
+  "thresholdsVersion": "2026-11-14",
+  "thresholdsHash": "dd76a6f4c919bab62a001beb3618b093b10690aaaa29e0f14c6e7b6a4305342f",
+  "signedBy": "Nadia Kusuma, Test Director",
+  "rerun": "node script/layerzero-check.mjs --eid=30101 --address=0x6c96de32cea08842dcc4058c14d3aaad7fa41dee"
+}

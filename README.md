@@ -139,6 +139,20 @@ The same run can be started from Actions, workflow `Test Drive request`, without
 
 RPC: any endpoint that serves Robinhood Chain works. If Alchemy lists this chain, store the URL as the repository secret `ALCHEMY_RPC_URL` and the workflow uses it; otherwise the public RPC is the default. Redis is not used by this path. For a future always-on request API, Redis Cloud's 30 MB free plan gives the standard TCP endpoint that BullMQ needs; Upstash's free plan is built around its REST API, so confirm its TCP/TLS endpoint is available before depending on it.
 
+## LayerZero checks
+
+Read-only Route, Peer and Supply checks for a LayerZero V2 OApp/OFT.
+
+```bash
+node script/layerzero-check.mjs --eid=30101 --address=0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee
+```
+
+- Route reads every path with a recent message from LayerZero Scan and records required/optional DVNs, threshold, confirmations and the operator name behind each DVN.
+- Peer reads the owner, classifies the owner as wallet, multisig, timelock or none, and checks that every registered peer holds code on its destination chain.
+- Supply compares the locked balance in an adapter with remote supply where the deployment exposes a comparable total.
+
+Thresholds live in `test-drive/layerzero/thresholds.json` and are bound to `signoff.json` by SHA-256. Results land in `results/LZ-<eid>-<address>.json` with a manifest at `results/LZ-manifest.json`.
+
 ## Status of the other reports
 
 `reports/CR-1001` and `results/CR-1001.json` came from the first published script set. They read the chain ID, the block number and the contract bytecode of deBridge, and they did not execute a scenario. That folder stays for reference and is not evidence of an execution.

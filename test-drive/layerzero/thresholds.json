@@ -1,0 +1,20 @@
+{
+  "version": "2026-11-14",
+  "route": {
+    "redWhenRequiredDvnAtMost": 1,
+    "redWhenOptionalThreshold": 0,
+    "amberWhenConfirmationsBelow": 15,
+    "amberWhenSingleOperator": true,
+    "meaning": "Red when an active path can be verified by a single DVN with no optional threshold. Amber when every DVN on the path is operated by the same name, or block confirmations are below 15."
+  },
+  "peer": {
+    "redWhenOwnerIsEoa": true,
+    "amberWhenOwnerIsContract": true,
+    "meaning": "Red when a single wallet owns the OApp. Amber when ownership sits behind a contract without a time delay."
+  },
+  "supply": {
+    "redAbovePct": 1,
+    "amberAbovePct": 0.1,
+    "meaning": "Difference between the sum of remote supply and the amount locked in the adapter. Red above 1 percent, amber above 0.1 percent."
+  }
+}

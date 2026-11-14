@@ -1,0 +1,372 @@
+{
+  "kind": "layerzero_check",
+  "notARating": true,
+  "label": "Automated Test Drive. Not a BULWARK rating.",
+  "oapp": {
+    "address": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
+    "eid": 30101,
+    "chain": "ethereum"
+  },
+  "ranAt": "2026-11-14T04:05:29.123Z",
+  "routes": [
+    {
+      "dstEid": "30390",
+      "dstChain": "monad",
+      "receiver": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30102",
+      "dstChain": "bnb",
+      "receiver": "0x53c3a64c8942288e12813c1f8457db45980bcfc2",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30101",
+      "dstChain": "ethereum",
+      "receiver": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
+      "confirmations": 128,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "4VDjp6XQaxoZf5RGwiPU9NR1EXSZn2TP4ATMmiSzLfhb",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "7jMeX5mzXnSSKYd8DxBDP4xMnkNFZZZm5W28FWUTbwU3",
+          "operator": "Canary"
+        },
+        {
+          "address": "JBt34GkVns6VSoP2dCPpViW28eqE4GNgKaoZPRP63wZs",
+          "operator": "USDT0"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30110",
+      "dstChain": "arbitrum",
+      "receiver": "0xf40542a7b66ad7c68c459ee3679635d2fdb6df39",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30343",
+      "dstChain": "ton",
+      "receiver": "0x90d9ff1c7814705fcc74f8b7598476d65f3b9536fc132729b0606f0be82e617f",
+      "confirmations": 65,
+      "requiredDVNCount": 2,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30212",
+      "dstChain": "conflux",
+      "receiver": "0x06d886ff518b5e642e7e6aad3ce797b7dabd8e9a",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30339",
+      "dstChain": "ink",
+      "receiver": "0xa1be1572b4beef24f812efdc58bdc41d56a0dab2",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30383",
+      "dstChain": "plasma",
+      "receiver": "0x63ab93cbc9d4ecd9c4947b1a38f458147c08e6f7",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30367",
+      "dstChain": "hyperliquid",
+      "receiver": "0x4e41cfc3f3b19e29e323d2c36f8f202a1e151daf",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30125",
+      "dstChain": "celo",
+      "receiver": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xa4fe5a5b9a846458a70cd0748228aed3bf65c2cd",
+          "operator": "Canary"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    }
+  ],
+  "routeLight": "green",
+  "peers": {
+    "owner": "0x4dff9b5b0143e642a3f63a5bcf2d1c328e600bf8",
+    "ownerType": "multisig",
+    "ownerCodeSize": 171,
+    "paths": [
+      {
+        "dstEid": "30390",
+        "peer": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30102",
+        "chain": "bnb",
+        "peer": "0x53c3a64c8942288e12813c1f8457db45980bcfc2",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30101",
+        "chain": "ethereum",
+        "peer": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30110",
+        "chain": "arbitrum",
+        "peer": "0xf40542a7b66ad7c68c459ee3679635d2fdb6df39",
+        "peerCode": true,
+        "codeSize": 2739
+      },
+      {
+        "dstEid": "30343",
+        "peer": "0x90d9ff1c7814705fcc74f8b7598476d65f3b9536fc132729b0606f0be82e617f",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30212",
+        "peer": "0x06d886ff518b5e642e7e6aad3ce797b7dabd8e9a",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30339",
+        "peer": "0xa1be1572b4beef24f812efdc58bdc41d56a0dab2",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30383",
+        "peer": "0x63ab93cbc9d4ecd9c4947b1a38f458147c08e6f7",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30367",
+        "peer": "0x4e41cfc3f3b19e29e323d2c36f8f202a1e151daf",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30125",
+        "peer": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
+      }
+    ],
+    "light": "amber"
+  },
+  "supply": {
+    "kind": "adapter",
+    "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+    "decimals": 6,
+    "locked": 31021.574455,
+    "remotes": [
+      {
+        "eid": "30102",
+        "chain": "bnb",
+        "peer": "0x53c3a64c8942288e12813c1f8457db45980bcfc2",
+        "kind": "adapter",
+        "token": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+        "locked": 0
+      },
+      {
+        "eid": "30101",
+        "chain": "ethereum",
+        "peer": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
+        "kind": "adapter",
+        "token": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+        "locked": 31021.574455
+      },
+      {
+        "eid": "30110",
+        "chain": "arbitrum",
+        "peer": "0xf40542a7b66ad7c68c459ee3679635d2fdb6df39",
+        "kind": "adapter",
+        "token": "0x40461291347e1ecbb09499f3371d3f17f10d7159",
+        "locked": 0
+      }
+    ],
+    "light": "grey",
+    "note": "Adapter peers hold the underlying token instead of exposing totalSupply; a like-for-like supply total needs the per-chain design documented by the issuer."
+  },
+  "canStillChange": [
+    "Ownership sits behind a multisig; the configuration can change when signers agree"
+  ],
+  "thresholdsVersion": "2026-11-14",
+  "thresholdsHash": "dd76a6f4c919bab62a001beb3618b093b10690aaaa29e0f14c6e7b6a4305342f",
+  "signedBy": "Nadia Kusuma, Test Director",
+  "rerun": "node script/layerzero-check.mjs --eid=30101 --address=0xb9c2321bb7d0db468f570d10a424d1cc8efd696c"
+}

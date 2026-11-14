@@ -1,0 +1,47 @@
+name: LayerZero check
+
+on:
+  workflow_dispatch:
+    inputs:
+      eid:
+        description: Source LayerZero endpoint id
+        required: true
+        default: "30101"
+      address:
+        description: OApp or OFT address on the source chain
+        required: true
+        default: "0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee"
+  push:
+    paths:
+      - "test-drive/layerzero/**"
+      - "script/layerzero-*.mjs"
+      - ".github/workflows/layerzero.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run LayerZero check
+        run: |
+          node script/layerzero-signoff.mjs --verify
+          node script/layerzero-check.mjs --eid=${{ github.event.inputs.eid || '30101' }} --address=${{ github.event.inputs.address || '0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee' }}
+      - name: Publish result and manifest
+        run: |
+          node script/layerzero-manifest.mjs
+          git config user.name "bulwark-test-drive"
+          git config user.email "test-drive@bulwarkproof.tech"
+          git add results/LZ-*.json
+          git diff --cached --quiet || git commit -m "LayerZero check result"
+          git push
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: layerzero-result
+          path: results/LZ-*.json

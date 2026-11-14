@@ -1,0 +1,25 @@
+{
+  "updatedAt": "2026-11-14T04:07:43.816Z",
+  "entries": [
+    {
+      "address": "0xb9c2321bb7d0db468f570d10a424d1cc8efd696c",
+      "eid": 30101,
+      "chain": "ethereum",
+      "ranAt": "2026-11-14T04:05:29.123Z",
+      "route": "green",
+      "peer": "amber",
+      "supply": "grey",
+      "file": "results/LZ-30101-0xb9c2321bb7d0db468f570d10a424d1cc8efd696c.json"
+    },
+    {
+      "address": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
+      "eid": 30101,
+      "chain": "ethereum",
+      "ranAt": "2026-11-14T04:05:23.264Z",
+      "route": "green",
+      "peer": "amber",
+      "supply": "grey",
+      "file": "results/LZ-30101-0x6c96de32cea08842dcc4058c14d3aaad7fa41dee.json"
+    }
+  ]
+}
