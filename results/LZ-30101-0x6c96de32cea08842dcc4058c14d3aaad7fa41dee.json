@@ -7,12 +7,12 @@
     "eid": 30101,
     "chain": "ethereum"
   },
-  "ranAt": "2026-11-14T04:05:23.264Z",
+  "ranAt": "2026-11-14T04:08:33.788Z",
   "routes": [
     {
-      "dstEid": "30110",
-      "dstChain": "arbitrum",
-      "receiver": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
+      "dstEid": "30367",
+      "dstChain": "hyperliquid",
+      "receiver": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
       "confirmations": 65,
       "requiredDVNCount": 3,
       "optionalDVNCount": 0,
@@ -38,6 +38,31 @@
       "dstEid": "30383",
       "dstChain": "plasma",
       "receiver": "0x02ca37966753bdddf11216b73b16c1de756a7cf9",
+      "confirmations": 65,
+      "requiredDVNCount": 3,
+      "optionalDVNCount": 0,
+      "optionalDVNThreshold": 0,
+      "requiredDVNs": [
+        {
+          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
+          "operator": "USDT0"
+        },
+        {
+          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
+          "operator": "LayerZero Labs"
+        },
+        {
+          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
+          "operator": "Canary Sponsored"
+        }
+      ],
+      "optionalDVNs": [],
+      "light": "green"
+    },
+    {
+      "dstEid": "30110",
+      "dstChain": "arbitrum",
+      "receiver": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
       "confirmations": 65,
       "requiredDVNCount": 3,
       "optionalDVNCount": 0,
@@ -185,31 +210,6 @@
       "light": "green"
     },
     {
-      "dstEid": "30367",
-      "dstChain": "hyperliquid",
-      "receiver": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
-      "confirmations": 65,
-      "requiredDVNCount": 3,
-      "optionalDVNCount": 0,
-      "optionalDVNThreshold": 0,
-      "requiredDVNs": [
-        {
-          "address": "0x3b0531eb02ab4ad72e7a531180beef9493a00dd2",
-          "operator": "USDT0"
-        },
-        {
-          "address": "0x589dedbd617e0cbcb916a9223f4d1300c294236b",
-          "operator": "LayerZero Labs"
-        },
-        {
-          "address": "0xf9d2c0915cac4c75b7ae359089333c8ac258e12c",
-          "operator": "Canary Sponsored"
-        }
-      ],
-      "optionalDVNs": [],
-      "light": "green"
-    },
-    {
       "dstEid": "30362",
       "dstChain": "bera",
       "receiver": "0x3dc96399109df5ceb2c226664a086140bd0379cb",
@@ -267,17 +267,23 @@
     "ownerCodeSize": 171,
     "paths": [
       {
-        "dstEid": "30110",
-        "chain": "arbitrum",
-        "peer": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
-        "peerCode": true,
-        "codeSize": 2739
+        "dstEid": "30367",
+        "peer": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
+        "peerCode": null,
+        "note": "No chain endpoint configured."
       },
       {
         "dstEid": "30383",
         "peer": "0x02ca37966753bdddf11216b73b16c1de756a7cf9",
         "peerCode": null,
         "note": "No chain endpoint configured."
+      },
+      {
+        "dstEid": "30110",
+        "chain": "arbitrum",
+        "peer": "0x14e4a1b13bf7f943c8ff7c51fb60fa964a298d92",
+        "peerCode": true,
+        "codeSize": 2739
       },
       {
         "dstEid": "30101",
@@ -312,12 +318,6 @@
         "note": "No chain endpoint configured."
       },
       {
-        "dstEid": "30367",
-        "peer": "0x904861a24f30ec96ea7cfc3be9ea4b476d237e98",
-        "peerCode": null,
-        "note": "No chain endpoint configured."
-      },
-      {
         "dstEid": "30362",
         "peer": "0x3dc96399109df5ceb2c226664a086140bd0379cb",
         "peerCode": null,
@@ -337,7 +337,7 @@
     "kind": "adapter",
     "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
     "decimals": 6,
-    "locked": 3576339032.283624,
+    "locked": 3576418167.025646,
     "remotes": [
       {
         "eid": "30110",
@@ -353,7 +353,7 @@
         "peer": "0x6c96de32cea08842dcc4058c14d3aaad7fa41dee",
         "kind": "adapter",
         "token": "0xdac17f958d2ee523a2206206994597c13d831ec7",
-        "locked": 3576339032.283624
+        "locked": 3576418167.025646
       },
       {
         "eid": "30109",
