@@ -5,7 +5,7 @@
   "statusNote": "Phase 1 complete. Phases 2 to 4 require a localnet with the prover and are out of scope for this publication.",
   "network": "mainnet-beta",
   "programId": "ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW",
-  "slot": 468875740,
+  "slot": 469218692,
   "executed": true,
   "program": {
     "executable": true,
@@ -16,9 +16,44 @@
   },
   "upgradeAuthority": {
     "holder": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB",
-    "type": "keypair",
+    "type": "program-derived address",
+    "onCurve": false,
     "accountOwner": null,
-    "impact": "can replace the whole program, so a single key compromise puts every deposited asset at risk"
+    "impact": "can replace the whole program; because the holder is a program-derived address, a replacement needs the controlling program to approve it and no single key can sign for it"
+  },
+  "authorityHistory": [
+    {
+      "event": "Last program upgrade",
+      "slot": 467127839,
+      "signature": "vY6Ajb6hd22XpkTAj556cANLkXXC9biUH3dtM8FPh7dy8iBiEJYUWAEz7BtUVwfXwww5dHj33AcGuSyZkwaPZ7s",
+      "executedBy": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "instruction": "VaultTransactionExecute",
+      "signer": "HwSzxkvm1bZPo5wLeFkZqBW3iWPg26uT4EWP8UuEQPyg",
+      "authorityUsed": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+      "multisig": "BCurTwuvnYmGdRQYwomHBVz8VUuk2BBVirXpaGvaxXQR",
+      "threshold": "2-of-6",
+      "timeLockSeconds": 0,
+      "log": "Upgraded program ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW"
+    },
+    {
+      "event": "Upgrade authority changed to CuZ42",
+      "slot": 467408467,
+      "signature": "4LWcDSLkPBBvB6iDotH9WJQS7rEpcvDxtp4qjYX9cx5yUNJCppAsnNnPqFEbB1Afvj1dSKXdwnJ2z3tPJbos7EVG",
+      "executedBy": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "instruction": "VaultTransactionExecute",
+      "signer": "HwSzxkvm1bZPo5wLeFkZqBW3iWPg26uT4EWP8UuEQPyg",
+      "authorityUsed": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+      "multisig": "BCurTwuvnYmGdRQYwomHBVz8VUuk2BBVirXpaGvaxXQR",
+      "threshold": "2-of-6",
+      "timeLockSeconds": 0,
+      "newAuthority": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB"
+    }
+  ],
+  "authorityController": {
+    "status": "being identified",
+    "holder": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB",
+    "facts": "The address is off the ed25519 curve, holds no account and has never appeared as a signer. It is not a vault of the 2-of-6 multisig that executed the historical upgrades.",
+    "checks": "Vault indices 0 to 16 were derived for all 3,984 Squads v4 multisig accounts on mainnet; no match. The privacy program and the user registry both use this address as upgrade authority."
   },
   "protocolConfig": {
     "address": "EienwBSpsbAetT3RAAMzVA9rB5RHgCF7yTH7FFST6AK5",
@@ -26,31 +61,36 @@
       {
         "role": "protocol_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet",
+        "type": "program-derived address",
+        "onCurve": false,
         "impact": "updates the protocol config and can pause a tree, so deposits and withdrawals on that tree can be stopped; it cannot move user funds"
       },
       {
         "role": "tree_creation_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet",
+        "type": "program-derived address",
+        "onCurve": false,
         "impact": "creates trees for the protocol; it has no path to user balances"
       },
       {
         "role": "forester_authority",
         "holder": "B5df3kMmMxwqRUwWPffiECeqAL1ht27G1ES8guKHKi5K",
-        "type": "keypair",
+        "type": "program-derived address",
+        "onCurve": false,
         "impact": "updates the nullifier tree, claims tree rent and closes nullifier accounts; it can stall the withdrawal path but cannot transfer user assets"
       },
       {
         "role": "ring_creation_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet",
+        "type": "program-derived address",
+        "onCurve": false,
         "impact": "creates and activates ring configs; it has no path to user balances"
       },
       {
         "role": "fee_authority",
         "holder": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
-        "type": "wallet",
+        "type": "program-derived address",
+        "onCurve": false,
         "impact": "sets tree fees, which changes what a user pays; it cannot move deposited funds"
       }
     ],

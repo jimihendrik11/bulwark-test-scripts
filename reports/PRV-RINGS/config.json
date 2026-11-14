@@ -24,6 +24,40 @@
     "addresses": "https://www.helius.dev/docs/privacy/addresses",
     "security": "https://www.helius.dev/docs/privacy/security"
   },
+  "authorityHistory": [
+    {
+      "event": "Last program upgrade",
+      "slot": 467127839,
+      "signature": "vY6Ajb6hd22XpkTAj556cANLkXXC9biUH3dtM8FPh7dy8iBiEJYUWAEz7BtUVwfXwww5dHj33AcGuSyZkwaPZ7s",
+      "executedBy": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "instruction": "VaultTransactionExecute",
+      "signer": "HwSzxkvm1bZPo5wLeFkZqBW3iWPg26uT4EWP8UuEQPyg",
+      "authorityUsed": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+      "multisig": "BCurTwuvnYmGdRQYwomHBVz8VUuk2BBVirXpaGvaxXQR",
+      "threshold": "2-of-6",
+      "timeLockSeconds": 0,
+      "log": "Upgraded program ring1GaLCuJnkUMVkX2JeZLTTX17wKsV4fZmPVzXANW"
+    },
+    {
+      "event": "Upgrade authority changed to CuZ42",
+      "slot": 467408467,
+      "signature": "4LWcDSLkPBBvB6iDotH9WJQS7rEpcvDxtp4qjYX9cx5yUNJCppAsnNnPqFEbB1Afvj1dSKXdwnJ2z3tPJbos7EVG",
+      "executedBy": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "instruction": "VaultTransactionExecute",
+      "signer": "HwSzxkvm1bZPo5wLeFkZqBW3iWPg26uT4EWP8UuEQPyg",
+      "authorityUsed": "Dhf62DbddAc2uDNqnz13W8Z1MpF5MVJ8dvh3Uvhif7Tr",
+      "multisig": "BCurTwuvnYmGdRQYwomHBVz8VUuk2BBVirXpaGvaxXQR",
+      "threshold": "2-of-6",
+      "timeLockSeconds": 0,
+      "newAuthority": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB"
+    }
+  ],
+  "authorityController": {
+    "status": "being identified",
+    "holder": "CuZ42BsoBcLaNTUboJpGhekGmrYMZ7sRhwVki4frz1FB",
+    "facts": "The address is off the ed25519 curve, holds no account and has never appeared as a signer. It is not a vault of the 2-of-6 multisig that executed the historical upgrades.",
+    "checks": "Vault indices 0 to 16 were derived for all 3,984 Squads v4 multisig accounts on mainnet; no match. The privacy program and the user registry both use this address as upgrade authority."
+  },
   "buildVerification": {
     "status": "verified",
     "release": "shielded-pool-v1.0.0",
@@ -82,7 +116,7 @@
   },
   "disclosure": {
     "securityFindings": "Private to Helius first, through their security channel or bug bounty, wait 14 days or until a fix is confirmed.",
-    "nonSecurityFindings": "On-chain facts such as a single-key authority may be published, with a courtesy notice to Helius before posting."
+    "nonSecurityFindings": "On-chain facts such as an authority holder and its type may be published, with a courtesy notice to Helius before posting."
   },
   "framing": "Independent on-chain verification. Not a Crash Report, no score and no stars.",
   "statusNote": "Phase 1 complete. Phases 2 to 4 require a localnet with the prover and are out of scope for this publication."
