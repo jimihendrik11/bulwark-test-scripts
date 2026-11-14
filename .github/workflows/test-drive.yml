@@ -13,8 +13,11 @@ on:
         default: "0"
   push:
     paths:
-      - "test-drive/**"
+      - "test-drive/test/**"
       - "test-drive.sh"
+      - "test-drive/foundry.toml"
+      - "test-drive/thresholds.json"
+      - "test-drive/signoff.json"
       - "script/test-drive-*.mjs"
       - ".github/workflows/test-drive.yml"
 
@@ -53,3 +56,4 @@ jobs:
             results/TD-*.json
             results/manifest.json
             test-drive/results/td-raw.json
+
