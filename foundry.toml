@@ -1,6 +1,6 @@
 [profile.default]
 src = "test/CR-1029"
-test = "test/CR-1029"
+test = "test"
 out = "out"
 libs = ["lib"]
 solc = "0.8.24"

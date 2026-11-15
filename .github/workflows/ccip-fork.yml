@@ -1,0 +1,48 @@
+name: CCIP 2.0 fork run
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "test/CCIP/**"
+      - "script/ccip-match.mjs"
+      - ".github/workflows/ccip-fork.yml"
+      - "foundry.toml"
+
+permissions:
+  contents: read
+
+jobs:
+  fork:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: Run the CCIP fork suite
+        env:
+          FORK_RPC: ${{ secrets.FORK_RPC || 'https://mainnet.gateway.tenderly.co' }}
+        run: |
+          mkdir -p results
+          forge test --match-path test/CCIP/CcipDynamic.t.sol -vv | tee ccip-fork.log
+
+      - name: Write machine-readable result and assert MATCH
+        if: always()
+        env:
+          FORK_RPC: ${{ secrets.FORK_RPC || 'https://mainnet.gateway.tenderly.co' }}
+        run: |
+          forge test --match-path test/CCIP/CcipDynamic.t.sol --json > results/CCIP-fork.json || true
+          node script/ccip-match.mjs | tee ccip-match.log
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ccip-fork-evidence
+          path: |
+            results/CCIP-fork.json
+            ccip-fork.log
+            ccip-match.log
