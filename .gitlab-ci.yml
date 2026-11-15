@@ -1,0 +1,25 @@
+stages:
+  - test
+
+ccip-fork:
+  stage: test
+  image: node:22-bookworm
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_PIPELINE_SOURCE == "push"
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq curl git
+    - curl -sL https://foundry.paradigm.xyz | bash
+    - export PATH="$HOME/.foundry/bin:$PATH"
+    - foundryup
+  script:
+    - export FORK_RPC="${FORK_RPC:-https://mainnet.gateway.tenderly.co}"
+    - forge test --match-path test/CCIP/CcipDynamic.t.sol -vv | tee ccip-fork.log
+    - forge test --match-path test/CCIP/CcipDynamic.t.sol --json > results/CCIP-fork.json || true
+    - node script/ccip-match.mjs
+  artifacts:
+    when: always
+    expire_in: 90 days
+    paths:
+      - results/CCIP-fork.json
+      - ccip-fork.log
